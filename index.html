@@ -1,0 +1,832 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <script type="text/javascript">
+        // window.NREUM||(NREUM={}),__nr_require=function(e,n,t){function r(t){if(!n[t]){var o=n[t]={exports:{}};e[t][0].call(o.exports,function(n){var o=e[t][1][n];return r(o||n)},o,o.exports)}return n[t].exports}if("function"==typeof __nr_require)return __nr_require;for(var o=0;o<t.length;o++)r(t[o]);return r}({1:[function(e,n,t){function r(){}function o(e,n,t){return function(){return i(e,[c.now()].concat(u(arguments)),n?null:this,t),n?void 0:this}}var i=e("handle"),a=e(3),u=e(4),f=e("ee").get("tracer"),c=e("loader"),s=NREUM;"undefined"==typeof window.newrelic&&(newrelic=s);var p=["setPageViewName","setCustomAttribute","setErrorHandler","finished","addToTrace","inlineHit","addRelease"],d="api-",l=d+"ixn-";a(p,function(e,n){s[n]=o(d+n,!0,"api")}),s.addPageAction=o(d+"addPageAction",!0),s.setCurrentRouteName=o(d+"routeName",!0),n.exports=newrelic,s.interaction=function(){return(new r).get()};var m=r.prototype={createTracer:function(e,n){var t={},r=this,o="function"==typeof n;return i(l+"tracer",[c.now(),e,t],r),function(){if(f.emit((o?"":"no-")+"fn-start",[c.now(),r,o],t),o)try{return n.apply(this,arguments)}catch(e){throw f.emit("fn-err",[arguments,this,e],t),e}finally{f.emit("fn-end",[c.now()],t)}}}};a("actionText,setName,setAttribute,save,ignore,onEnd,getContext,end,get".split(","),function(e,n){m[n]=o(l+n)}),newrelic.noticeError=function(e,n){"string"==typeof e&&(e=new Error(e)),i("err",[e,c.now(),!1,n])}},{}],2:[function(e,n,t){function r(e,n){if(!o)return!1;if(e!==o)return!1;if(!n)return!0;if(!i)return!1;for(var t=i.split("."),r=n.split("."),a=0;a<r.length;a++)if(r[a]!==t[a])return!1;return!0}var o=null,i=null,a=/Version\/(\S+)\s+Safari/;if(navigator.userAgent){var u=navigator.userAgent,f=u.match(a);f&&u.indexOf("Chrome")===-1&&u.indexOf("Chromium")===-1&&(o="Safari",i=f[1])}n.exports={agent:o,version:i,match:r}},{}],3:[function(e,n,t){function r(e,n){var t=[],r="",i=0;for(r in e)o.call(e,r)&&(t[i]=n(r,e[r]),i+=1);return t}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],4:[function(e,n,t){function r(e,n,t){n||(n=0),"undefined"==typeof t&&(t=e?e.length:0);for(var r=-1,o=t-n||0,i=Array(o<0?0:o);++r<o;)i[r]=e[n+r];return i}n.exports=r},{}],5:[function(e,n,t){n.exports={exists:"undefined"!=typeof window.performance&&window.performance.timing&&"undefined"!=typeof window.performance.timing.navigationStart}},{}],ee:[function(e,n,t){function r(){}function o(e){function n(e){return e&&e instanceof r?e:e?f(e,u,i):i()}function t(t,r,o,i){if(!d.aborted||i){e&&e(t,r,o);for(var a=n(o),u=v(t),f=u.length,c=0;c<f;c++)u[c].apply(a,r);var p=s[y[t]];return p&&p.push([b,t,r,a]),a}}function l(e,n){h[e]=v(e).concat(n)}function m(e,n){var t=h[e];if(t)for(var r=0;r<t.length;r++)t[r]===n&&t.splice(r,1)}function v(e){return h[e]||[]}function g(e){return p[e]=p[e]||o(t)}function w(e,n){c(e,function(e,t){n=n||"feature",y[t]=n,n in s||(s[n]=[])})}var h={},y={},b={on:l,addEventListener:l,removeEventListener:m,emit:t,get:g,listeners:v,context:n,buffer:w,abort:a,aborted:!1};return b}function i(){return new r}function a(){(s.api||s.feature)&&(d.aborted=!0,s=d.backlog={})}var u="nr@context",f=e("gos"),c=e(3),s={},p={},d=n.exports=o();d.backlog=s},{}],gos:[function(e,n,t){function r(e,n,t){if(o.call(e,n))return e[n];var r=t();if(Object.defineProperty&&Object.keys)try{return Object.defineProperty(e,n,{value:r,writable:!0,enumerable:!1}),r}catch(i){}return e[n]=r,r}var o=Object.prototype.hasOwnProperty;n.exports=r},{}],handle:[function(e,n,t){function r(e,n,t,r){o.buffer([e],r),o.emit(e,n,t)}var o=e("ee").get("handle");n.exports=r,r.ee=o},{}],id:[function(e,n,t){function r(e){var n=typeof e;return!e||"object"!==n&&"function"!==n?-1:e===window?0:a(e,i,function(){return o++})}var o=1,i="nr@id",a=e("gos");n.exports=r},{}],loader:[function(e,n,t){function r(){if(!E++){var e=x.info=NREUM.info,n=l.getElementsByTagName("script")[0];if(setTimeout(s.abort,3e4),!(e&&e.licenseKey&&e.applicationID&&n))return s.abort();c(y,function(n,t){e[n]||(e[n]=t)}),f("mark",["onload",a()+x.offset],null,"api");var t=l.createElement("script");t.src="https://"+e.agent,n.parentNode.insertBefore(t,n)}}function o(){"complete"===l.readyState&&i()}function i(){f("mark",["domContent",a()+x.offset],null,"api")}function a(){return O.exists&&performance.now?Math.round(performance.now()):(u=Math.max((new Date).getTime(),u))-x.offset}var u=(new Date).getTime(),f=e("handle"),c=e(3),s=e("ee"),p=e(2),d=window,l=d.document,m="addEventListener",v="attachEvent",g=d.XMLHttpRequest,w=g&&g.prototype;NREUM.o={ST:setTimeout,SI:d.setImmediate,CT:clearTimeout,XHR:g,REQ:d.Request,EV:d.Event,PR:d.Promise,MO:d.MutationObserver};var h=""+location,y={beacon:"bam.nr-data.net",errorBeacon:"bam.nr-data.net",agent:"js-agent.newrelic.com/nr-1123.min.js"},b=g&&w&&w[m]&&!/CriOS/.test(navigator.userAgent),x=n.exports={offset:u,now:a,origin:h,features:{},xhrWrappable:b,userAgent:p};e(1),l[m]?(l[m]("DOMContentLoaded",i,!1),d[m]("load",r,!1)):(l[v]("onreadystatechange",o),d[v]("onload",r)),f("mark",["firstbyte",u],null,"api");var E=0,O=e(5)},{}]},{},["loader"]);
+    </script>
+        <meta http-equiv="cleartype" content="on">
+
+        <meta name="HandheldFriendly" content="True">
+        <meta name="MobileOptimized" content="320">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home - Rock Werchter 2019</title>
+
+        <meta name="description" content="Rock Werchter 2019 takes place from 27 to 30 June 2019 at the Festivalpark, Werchter, Belgium. Four days, four stages. The best headliners, fiery young stars, hard-bitten rockers, singer-songwriters and the fattest beats.">
+        
+        <meta property="og:title" content="Home">
+        <meta property="og:description" content="Rock Werchter 2019 takes place from 27 to 30 June 2019 at the Festivalpark, Werchter, Belgium. Four days, four stages. The best headliners, fiery young stars, hard-bitten rockers, singer-songwriters and the fattest beats.">
+        
+                        
+        <meta property="og:url" content="https://www.rockwerchter.be/en/">
+        <meta property="og:type" content="website">
+
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
+        <link rel="stylesheet" href="https://assets.rockwerchter.be/layout/frontend/css/screen.css?v29.5"/>
+
+        
+        <link rel="alternate" hreflang="nl" href="https://www.rockwerchter.be/nl/" />
+        <link rel="alternate" hreflang="en" href="https://www.rockwerchter.be/en/" />
+        <link rel="alternate" hreflang="fr" href="https://www.rockwerchter.be/fr/" />
+    
+
+        
+        
+
+        <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+        <!-- Google Tag Manager DataLayer START -->
+            <script>
+            dataLayer = [{"page":{"type":"content","title":"Home"}}];
+        </script>
+    
+    <script>
+        var device;
+        var regex = new RegExp("(android|iphone|ipad|blackberry|symbian|symbianos|" +
+                "symbos|netfront|model-orange|javaplatform|iemobile|windows phone|samsung|htc|" +
+                "opera mobile|opera mobi|opera mini|presto|huawei|blazer|bolt|doris|fennec|" +
+                "gobrowser|iris|maemo browser|mib|cldc|minimo|semc-browser|skyfire|teashark|" +
+                "teleca|uzard|uzardweb|meego|nokia|bb10|playbook)","gi");
+        if (navigator.userAgent.match(regex)){
+            if (((screen.width >= 480) && (screen.height >= 800)) || ((screen.width >= 800) && (screen.height >= 480)) || navigator.userAgent.match(/ipad/gi)){
+                device = 'tablet';
+            } else {
+                device = 'mobile';
+            }
+        } else {
+            device = 'desktop';
+        }
+
+        if (typeof dataLayer !== 'undefined') {
+            dataLayer.push({'device' : device});
+        } else {
+            dataLayer = [{'device': device}];
+        }
+    </script>
+<!-- Google Tag Manager DataLayer END -->
+
+
+            
+        <!-- Google Tag Manager START -->
+    <script>
+        // (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+        //         new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+        //         j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+        //         'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+        // })(window,document,'script','dataLayer','GTM-W9J7PP7');
+    </script>
+<!-- Google Tag Manager END -->
+
+</head>
+
+<body class="">
+<!-- Google Tag Manager (noscript) START -->
+    <noscript>
+        <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W9J7PP7"
+                height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+<!-- Google Tag Manager (noscript) END -->
+
+    <div class="c-page js-page">
+        <div class="c-page-header js-header">
+            <div class="js-nav-holder c-row c-row--header">
+                <div class="o-container">
+                    <div class="c-header">
+                        <div class="c-header__logo"><h1 class="c-logo"></h1></div>
+                        <div class="c-header__nav js-nav">
+                            <nav class="c-nav-main">
+                                <ul class="o-list c-nav-main__list">
+                                    <li class="c-nav-main__item is-selected">
+                                        <a href="/en/" class="c-nav-main__link">Home</a>
+                                    </li>
+                                    <li class="c-nav-main__item ">
+                                        <a href="http://vod.rockwerchter.be/?language=en" class="c-nav-main__link">RWTV</a>
+                                    </li>
+                                    <li class="c-nav-main__item ">
+                                        <a href="/en/line-up" class="c-nav-main__link">Line up</a>
+                                    </li>
+                                    <li class="c-nav-main__item ">
+                                        <a href="/en/camping" class="c-nav-main__link">Camping</a>
+                                    </li>
+                                    <li class="c-nav-main__item ">
+                                        <a href="/en/practical" class="c-nav-main__link">Practical</a>
+                                    </li>
+                                    <li class="c-nav-main__item ">
+                                        <a href="/en/history" class="c-nav-main__link">History</a>
+                                    </li>
+                                    <li class="c-nav-main__item ">
+                                        <a href="http://northwestwalls.be" class="c-nav-main__link">NWW</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                            <nav class="c-nav-lang">
+                                <ul class="o-list c-nav-lang__list">
+                                    <li class="c-nav-lang__item">
+                                        <a href="https://www.rockwerchter.be/nl/" class="c-nav-lang__link ">NL</a>
+                                    </li>
+                                    <li class="c-nav-lang__item is-selected">
+                                        <a href="https://www.rockwerchter.be/en/" class="c-nav-lang__link ">EN</a>
+                                    </li>
+                                    <li class="c-nav-lang__item">
+                                        <a href="https://www.rockwerchter.be/fr/" class="c-nav-lang__link ">FR</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                            <nav class="c-nav-theme">
+                                <ul class="o-list c-nav-lang__list">
+                                    <li class="c-nav-theme__item" data-theme="alpha">
+                                        <a href="#!" class="c-nav-theme__trigger c-nav-theme__trigger--alpha"></a>
+                                    </li>
+                                    <li class="c-nav-theme__item" data-theme="beta">
+                                        <a href="#!" class="c-nav-theme__trigger c-nav-theme__trigger--beta"></a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <div class="c-header__search js-search">
+                            <form class="c-search" action="/en/search/">
+                                <input type="text" placeholder="Search" name="q" id="q" class="c-input-text c-search__input js-search-input">
+                            </form>
+                        </div>
+                        <div class="c-header__triggers">
+                            <div class="c-header__search-trigger">
+                                <button class="c-search-trigger js-search-trigger">
+                                    <svg role="img" class="c-symbol c-symbol--search c-search-trigger__symbol">
+                                        <use xlink:href="/layout/frontend/img/svg/svg-symbols.svg?v29.5#c-symbol-search"></use>
+                                    </svg>
+                                    <span class="c-search-trigger__label">Zoek</span>
+                                </button>
+                            </div>
+                            <div class="c-header__nav-trigger">
+                                <button class="c-nav-main-trigger js-nav-trigger">
+                                    <svg role="img" class="c-symbol c-symbol--hamburger c-nav-main-trigger__symbol">
+                                        <use xlink:href="/layout/frontend/img/svg/svg-symbols.svg?v29.5#c-symbol-hamburger"></use>
+                                    </svg>
+                                    <span class="c-nav-main-trigger__label">Menu</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="c-page-main js-main">
+            <div class="c-row c-row--alpha c-row--grid">
+                <div class="o-container">
+                    <div class="c-grid c-grid--dense c-grid--gutter js-show-more-container">
+                        <div class="c-grid__item c-grid__item--a">
+                            <a href="https://www.youtube.com/embed/x4RIhwfEz1A?autoplay=1" class="c-box c-box--shadow c-box--link c-box--video js-modaal-video">
+                                <div class="c-box__background-image">
+                                    <div class="c-background-image c-background-image--blazy js-blazy" data-src="https://i.ytimg.com/vi/x4RIhwfEz1A/hqdefault.jpg"></div>
+                                </div>
+                                <div class="c-box__body">
+                                    <div class="c-box__content c-box__content--lg">
+                                        <p class="c-stamp c-stamp--gamma u-mb-beta">
+                                            <span class="c-stamp__symbol-container c-stamp__symbol-container--play">
+                                                <svg role="img" class="c-symbol c-symbol--play c-stamp__symbol">
+                                                    <use xlink:href="/layout/frontend/img/svg/svg-symbols.svg?v29.5#c-symbol-play"></use>
+                                                </svg>
+                                            </span>
+                                            <span class="c-stamp__label">
+                                                VIDEO
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="c-box__content">
+                                        <h2 class="c-box__title u-gradient-1">
+                                            You Rocked Werchter 2019
+                                        </h2>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="c-grid__item c-grid__item--d">
+                            <a href="https://www.youtube.com/embed/rCPdZ9uLDA4?autoplay=1" class="c-box c-box--shadow c-box--link c-box--video js-modaal-video">
+                                <div class="c-box__background-image">
+                                    <div class="c-background-image c-background-image--blazy js-blazy" data-src="https://i.ytimg.com/vi/rCPdZ9uLDA4/hqdefault.jpg"></div>
+                                </div>
+                                <div class="c-box__body">
+                                    <div class="c-box__content c-box__content--lg">
+                                        <p class="c-stamp c-stamp--gamma u-mb-beta">
+                                            <span class="c-stamp__symbol-container c-stamp__symbol-container--play">
+                                                <svg role="img" class="c-symbol c-symbol--play c-stamp__symbol">
+                                                    <use xlink:href="/layout/frontend/img/svg/svg-symbols.svg?v29.5#c-symbol-play"></use>
+                                                </svg>
+                                            </span>
+                                            <span class="c-stamp__label">
+                                                VIDEO
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="c-box__content">
+                                        <h2 class="c-box__title u-gradient-1">
+                                            It&#039;s a wrap. Thank you!
+                                        </h2>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>                                
+                        <div class="c-grid__item c-grid__item--c">
+                            <a href="http://live.rockwerchter.be/en" class="c-box c-box--shadow c-box--link" target="_blank">
+                                <div class="c-box__background-image c-box__background-image--visual">
+                                    <div class="c-background-image c-background-image--blazy js-blazy" data-src="https://assets.rockwerchter.be/files/cache/medium/files/stream-sq-5d14b3821c420.jpg"></div>
+                                </div>
+                                <div class="c-box__body">
+                                    <div class="c-box__content c-box__content--lg">
+                                        <p class="c-stamp c-stamp--alpha u-mb-beta">
+                                            <span class="c-stamp__label">Jun 27, 2019</span>
+                                        </p>
+                                    </div>
+                                    <div class="c-box__content">
+                                        <h2 class="c-box__title u-gradient-1">
+                                            Watch Rock Werchter live!
+                                        </h2>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>     
+                        <div class="c-grid__item c-grid__item--d">
+                            <a href="https://www.facebook.com/rockwerchterfestival/" class="c-box c-box--shadow c-box--link" target="_blank">
+                                <div class="c-box__background-image c-box__background-image--visual">
+                                    <div class="c-background-image c-background-image--blazy js-blazy" data-src="https://assets.rockwerchter.be/files/cache/medium/files/f816988-5d18c11d21784.jpg"></div>
+                                </div>
+                            </a>
+                        </div>     
+                        <div class="c-grid__item c-grid__item--b">
+                            <a href="https://www.facebook.com/rockwerchterfestival/" class="c-box c-box--shadow c-box--link" target="_blank">
+                                <div class="c-box__background-image c-box__background-image--visual">
+                                    <div class="c-background-image c-background-image--blazy js-blazy" data-src="https://assets.rockwerchter.be/files/cache/medium/files/muse1-5d193c6cdded2.jpg"></div>
+                                </div>
+                            </a>
+                        </div>         
+                        <div class="c-grid__item c-grid__item--c">
+                            <a href="https://www.facebook.com/pg/rockwerchterfestival/photos/?tab=album&amp;album_id=10157351491425699" class="c-box c-box--shadow c-box--link" target="_blank">
+                                <div class="c-box__background-image c-box__background-image--visual">
+                                    <div class="c-background-image c-background-image--blazy js-blazy" data-src="https://assets.rockwerchter.be/files/cache/medium/files/florence-themachine-021-5d17d29b6704f.jpg"></div>
+                                </div>
+                            </a>
+                        </div>
+                                    
+                        <div class="c-grid__item c-grid__item--c">
+                            <a href="https://www.facebook.com/rockwerchterfestival/" class="c-box c-box--shadow c-box--link" target="_blank">
+                                <div class="c-box__background-image c-box__background-image--visual">
+                                    <div class="c-background-image c-background-image--blazy js-blazy" data-src="https://assets.rockwerchter.be/files/cache/medium/files/f816197-5d18c1f8ebd41.jpg"></div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="c-grid__item c-grid__item--c">
+                            <div class="c-box c-box--tweet">
+                                <div class="c-box__body">
+                                    <div class="c-box__content">
+                                        <div class="c-social">
+                                            <p class="c-social__text c-social__text--sm">Well that was A LOT of fun. 
+                                                <a href="http://twitter.com/RockWerchter" alt="Rock Werchter" target="_blank">@RockWerchter</a>, you’re great. Thank you 🇧🇪 
+                                                <a href="http://twitter.com/hashtag/DeltaTour" target="_blank">#DeltaTour</a> 
+                                                <a href="http://twitter.com/hashtag/rockwerchter" target="_blank">#rockwerchter</a> 
+                                                <a target="_blank" href="https://t.co/KoGD1BNs4w">https://t.co/KoGD1BNs4w</a>
+                                            </p>
+                                            <p class="c-social__from">
+                                                <a class="c-social__author" href="https://twitter.com/MumfordAndSons" target="_blank">@MumfordAndSons</a>
+                                                <svg role="img" class="c-symbol c-symbol--twitter">
+                                                    <use xlink:href="/layout/frontend/img/svg/svg-symbols.svg?v29.5#c-symbol-twitter"></use>
+                                                </svg>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                                
+                        <div class="c-grid__item c-grid__item--c">
+                            <div class="c-box">
+                                <div class="c-box__background-image c-box__background-image--visual">
+                                    <div class="c-background-image c-background-image--blazy js-blazy" data-src="https://assets.rockwerchter.be/files/cache/medium/files/delphine-5d167e2935f2b.jpg"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="c-grid__item c-grid__item--c">
+                            <div class="c-box c-box--tweet">
+                                <div class="c-box__body">
+                                    <div class="c-box__content">
+                                        <div class="c-social">
+                                            <p class="c-social__text c-social__text--sm">
+                                                <a href="http://twitter.com/RockWerchter" alt="Rock Werchter" target="_blank">@RockWerchter</a>! Main Stage 14:20 today x
+                                            </p>
+                                            <p class="c-social__from">
+                                                <a class="c-social__author" href="https://twitter.com/MilesKaneMusic" target="_blank">@MilesKaneMusic</a>
+                                                <svg role="img" class="c-symbol c-symbol--twitter">
+                                                    <use xlink:href="/layout/frontend/img/svg/svg-symbols.svg?v29.5#c-symbol-twitter"></use>
+                                                </svg>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>     
+                        <div class="c-grid__item c-grid__item--d">
+                            <a href="https://www.facebook.com/rockwerchterfestival/" class="c-box c-box--shadow c-box--link" target="_blank">
+                                <div class="c-box__background-image c-box__background-image--visual">
+                                    <div class="c-background-image c-background-image--blazy js-blazy" data-src="https://assets.rockwerchter.be/files/cache/medium/files/thecure-web-5d167f0532f3b.jpg"></div>
+                                </div>
+                            </a>
+                        </div>
+                                    
+                        <div class="c-grid__item c-grid__item--d">
+                            <div class="c-box">
+                                <div class="c-box__background-image c-box__background-image--visual">
+                                    <div class="c-background-image c-background-image--blazy js-blazy" data-src="https://assets.rockwerchter.be/files/cache/medium/files/pink-web-5d153c5800216.jpg"></div>
+                                </div>
+                            </div>
+                        </div>
+                                    
+                        <div class="c-grid__item c-grid__item--c">
+                            <div class="c-box">
+                                <div class="c-box__background-image c-box__background-image--visual">
+                                    <div class="c-background-image c-background-image--blazy js-blazy" data-src="https://assets.rockwerchter.be/files/cache/medium/files/sfeervrijdag-web-5d162e570b154.jpg"></div>
+                                </div>
+                            </div>
+                        </div>
+                                    
+                        <div class="c-grid__item c-grid__item--c">
+                            <a href="https://www.facebook.com/rockwerchterfestival/photos/?tab=album&amp;album_id=10157346158295699&amp;__xts__[0]=68.ARB4oRoIttRBJDbHfW8RqqKG0WRlkDfmY4FP7__BUGuDb-Mq9j2-thccItFbKktADldsLYT-8J2_lBCpNXVDyEakiHqbgObvI00vFwnSnklZBWm3-swFmU58w5l7xkgGSXkmvpSlAkOrhDDv6ldIBg" class="c-box c-box--shadow c-box--link" target="_blank">
+                                <div class="c-box__background-image c-box__background-image--visual">
+                                    <div class="c-background-image c-background-image--blazy js-blazy" data-src="https://assets.rockwerchter.be/files/cache/medium/files/2019-rw19-maribou-state-photo-ben-houdijk-lr-8305-5d14f770ed041.jpg"></div>
+                                </div>
+                            </a>
+                        </div>
+                                    
+                        <div class="c-grid__item c-grid__item--a">
+                            <a href="https://www.facebook.com/rockwerchterfestival/" class="c-box c-box--shadow c-box--link" target="_blank">
+                                <div class="c-box__background-image c-box__background-image--visual">
+                                    <div class="c-background-image c-background-image--blazy js-blazy" data-src="https://assets.rockwerchter.be/files/cache/medium/files/f814819-5d14d9a2dc155.jpg"></div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="c-grid__item c-grid__item--c">
+                            <div class="c-box c-box--tweet">
+                                <div class="c-box__body">
+                                    <div class="c-box__content">
+                                        <div class="c-social">
+                                            <p class="c-social__text c-social__text--sm">Let's do this 
+                                                <a href="http://twitter.com/RockWerchter" alt="Rock Werchter" target="_blank">@RockWerchter</a>. See you all on The Slope Stage at 7:30. 
+                                                <a target="_blank" href="https://t.co/QCyT0N5w04">https://t.co/QCyT0N5w04</a>
+                                            </p>
+                                            <p class="c-social__from">
+                                                <a class="c-social__author" href="https://twitter.com/deafhavana" target="_blank">@deafhavana</a>
+                                                <svg role="img" class="c-symbol c-symbol--twitter">
+                                                    <use xlink:href="/layout/frontend/img/svg/svg-symbols.svg?v29.5#c-symbol-twitter"></use>
+                                                </svg>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="c-grid__item c-grid__item--b">
+                            <a href="/en/blog/rock-werchter-tropical-our-heatwave-plan/detail" class="c-box c-box--shadow c-box--link js-modaal-ajax" data-route="/en/blog/rock-werchter-tropical-our-heatwave-plan">
+                                <div class="c-box__background-image">
+                                    <div class="c-background-image c-background-image--blazy js-blazy" data-src="https://assets.rockwerchter.be/files/cache/medium/files/2018-07-05-17u09s-jokko-8376-5d0cd05364f72.jpg"></div>
+                                </div>
+                                <div class="c-box__body">
+                                    <div class="c-box__content c-box__content--lg">
+                                        <p class="c-stamp c-stamp--alpha u-mb-beta">
+                                            <span class="c-stamp__label">
+                                                Jun 21, 2019
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="c-box__content">
+                                        <h2 class="c-box__title u-gradient-1">
+                                            Rock Werchter tropical: our heatwave plan
+                                        </h2>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="c-grid__item c-grid__item--c">
+                            <div class="c-box c-box--tweet">
+                                <div class="c-box__body">
+                                    <div class="c-box__content">
+                                        <div class="c-social">
+                                            <p class="c-social__text c-social__text--sm">VERY excited to be heading back to 
+                                                <a href="http://twitter.com/RockWerchter" alt="Rock Werchter" target="_blank">@RockWerchter</a> today. Put together a big ol gig for you lot 
+                                                <a target="_blank" href="https://t.co/5MmUd5RwWh">https://t.co/5MmUd5RwWh</a>
+                                            </p>
+                                            <p class="c-social__from">
+                                                <a class="c-social__author" href="https://twitter.com/bastilledan" target="_blank">@bastilledan</a>
+                                                <svg role="img" class="c-symbol c-symbol--twitter">
+                                                    <use xlink:href="/layout/frontend/img/svg/svg-symbols.svg?v29.5#c-symbol-twitter"></use>
+                                                </svg>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>       
+                        <div class="c-grid__item c-grid__item--d">
+                            <div class="c-box">
+                                <div class="c-box__background-image c-box__background-image--visual">
+                                    <div class="c-background-image c-background-image--blazy js-blazy" data-src="https://assets.rockwerchter.be/files/cache/medium/files/2019-19-27-13u01-jokko-3-5d14d9cce1ddd.jpg"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="c-grid__item c-grid__item--d">
+                            <a href="https://assets.rockwerchter.be/files/cache/medium/files/gif-run-5-5d1494c30f6b9.jpg" rel="gallery" class="c-box c-box--link js-modaal-image">
+                                <div class="c-box__body">
+                                    <div class="c-box__content c-box__content--lg u-z-alpha">
+                                        <p class="c-stamp c-stamp--gamma u-mb-beta">
+                                            <span class="c-stamp__symbol-container c-stamp__symbol-container--slideshow">
+                                                <svg role="img" class="c-symbol c-symbol--slideshow c-stamp__symbol c-stamp__symbol--lg">
+                                                    <use xlink:href="/layout/frontend/img/svg/svg-symbols.svg?v29.5#c-symbol-slideshow"></use>
+                                                </svg>
+                                            </span>
+                                        </p>
+                                    </div>
+                                    <div class="c-box__background-image">
+                                        <div class="c-background-image c-background-image--blazy js-blazy" data-src="https://assets.rockwerchter.be/files/cache/medium/files/gif-run-5-5d1494c30f6b9.jpg"></div>
+                                    </div>
+                               </div>
+                            </a>
+                            <div class="is-hidden">
+                                <a href="https://assets.rockwerchter.be/files/cache/medium/files/f814460-5d1494551f391.jpg" rel="gallery" class="c-box c-box--link js-modaal-image">
+                        <div class="c-box__background-image">
+                            <div class="c-background-image c-background-image--blazy js-blazy"
+                                 data-src="https://assets.rockwerchter.be/files/cache/medium/files/f814460-5d1494551f391.jpg">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                                
+                                            <div class="is-hidden">
+                    <a href="https://assets.rockwerchter.be/files/cache/medium/files/f814533-5d1494477e5d1.jpg"
+                       rel="gallery" class="c-box c-box--link js-modaal-image">
+                        <div class="c-box__background-image">
+                            <div class="c-background-image c-background-image--blazy js-blazy"
+                                 data-src="https://assets.rockwerchter.be/files/cache/medium/files/f814533-5d1494477e5d1.jpg">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                                
+                                            <div class="is-hidden">
+                    <a href="https://assets.rockwerchter.be/files/cache/medium/files/1-5d149806e6b17.jpg"
+                       rel="gallery" class="c-box c-box--link js-modaal-image">
+                        <div class="c-box__background-image">
+                            <div class="c-background-image c-background-image--blazy js-blazy"
+                                 data-src="https://assets.rockwerchter.be/files/cache/medium/files/1-5d149806e6b17.jpg">
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                        </div>
+                    </div>
+    </div>
+</div>
+
+
+                </div>
+
+    <div class="c-page-footer">
+                            <div class="c-row c-row--doormat">
+            <button class="c-button-reset c-show-more js-show-more"  data-page="1">
+    <svg role="img" class="c-symbol c-symbol--plus c-show-more__symbol">
+    <use xlink:href="/layout/frontend/img/svg/svg-symbols.svg?v29.5#c-symbol-plus"></use>
+</svg>
+    <span class="c-show-more__label">Toon meer</span>
+</button>
+        <div class="o-container">
+            <div class="c-section">
+                <ul class="o-list c-social-links">
+                    <li class="o-list__item c-social-links__item">
+                        <a class="c-social-links__link" href="http://www.facebook.com/rockwerchterfestival">
+                            <svg role="img" class="c-symbol c-symbol--facebook c-social-links__symbol">
+                                <use xlink:href="/layout/frontend/img/svg/svg-symbols.svg?v29.5#c-symbol-facebook"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="o-list__item c-social-links__item">
+                        <a class="c-social-links__link" href="http://www.twitter.com/rockwerchter">
+                            <svg role="img" class="c-symbol c-symbol--twitter c-social-links__symbol">
+                                <use xlink:href="/layout/frontend/img/svg/svg-symbols.svg?v29.5#c-symbol-twitter"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="o-list__item c-social-links__item">
+                        <a class="c-social-links__link" href="http://instagram.com/rockwerchterfestival">
+                            <svg role="img" class="c-symbol c-symbol--instagram c-social-links__symbol">
+                                <use xlink:href="/layout/frontend/img/svg/svg-symbols.svg?v29.5#c-symbol-instagram"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="o-list__item c-social-links__item">
+                        <a class="c-social-links__link" href="https://play.spotify.com/user/rockwerchterofficial">
+                            <svg role="img" class="c-symbol c-symbol--spotify c-social-links__symbol">
+                                <use xlink:href="/layout/frontend/img/svg/svg-symbols.svg?v29.5#c-symbol-spotify"></use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li class="o-list__item c-social-links__item">
+                        <a class="c-social-links__link" href="http://www.youtube.com/user/rockwerchterfestival">
+                            <svg role="img" class="c-symbol c-symbol--youtube c-social-links__symbol">
+                                <use xlink:href="/layout/frontend/img/svg/svg-symbols.svg?v29.5#c-symbol-youtube"></use>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </div>        
+            <div class="c-section">
+                <div class="o-grid o-grid--gutter">
+                    <div class="o-grid__item u-1-of-4-bp5">
+                        <h4 class="u-type-uppercase u-ms2 u-color-neutral-xxxx-light u-mb-gamma">
+                            Info
+                        </h4>
+                        <ul class="o-list c-doormat-list">
+                            <li class="c-doormat-list__item ">
+                                <a href="/en/about-rock-werchter" class="c-doormat-list__link">
+                                    About Rock Werchter
+                                </a>
+                            </li>
+                            <li class="c-doormat-list__item ">
+                                <a href="/en/contact" class="c-doormat-list__link">
+                                    Contact
+                                </a>
+                            </li>
+                            <li class="c-doormat-list__item ">
+                                <a href="/en/press-website"class="c-doormat-list__link">
+                                    Press website
+                                </a>
+                            </li>
+                            <li class="c-doormat-list__item ">
+                                <a href="/en/conditions-of-sale" class="c-doormat-list__link">
+                                    Conditions of sale
+                                </a>
+                            </li>
+                            <li class="c-doormat-list__item ">
+                                <a href="/en/green" class="c-doormat-list__link">
+                                    Green
+                                </a>
+                            </li>
+                            <li class="c-doormat-list__item ">
+                                <a href="/en/disclaimer" class="c-doormat-list__link">
+                                    Disclaimer
+                                </a>
+                            </li>
+    
+                            <li class="c-doormat-list__item ">
+                                <a href="https://nl.livenation.be/privacy" class="c-doormat-list__link">
+                                    Privacy policy
+                                </a>
+                            </li>
+                            <li class="c-doormat-list__item ">
+                                <a href="https://nl.livenation.be/cookies" class="c-doormat-list__link">
+                                    Cookies
+                                </a>
+                            </li>
+    
+                            <li class="c-doormat-list__item ">
+                                <a href="/en/thanks-to" class="c-doormat-list__link">
+                                    Thanks to
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="o-grid__item u-1-of-4-bp5">
+                        <h4 class="u-type-uppercase u-ms2 u-color-neutral-xxxx-light u-mb-gamma">
+                            Know more?
+                        </h4>
+                        <ul class="o-list c-doormat-list">
+                            <li class="c-doormat-list__item ">
+                                <a href="/en/practical/tickets" class="c-doormat-list__link">
+                                    Tickets
+                                </a>
+                            </li>
+                            <li class="c-doormat-list__item ">
+                                <a href="/en/practical/at-the-festival-site" class="c-doormat-list__link">
+                                    At the festival site
+                                </a>
+                            </li>
+    
+                    <li class="c-doormat-list__item ">
+                <a
+        href="/en/practical/how-to-get-there"
+        class="c-doormat-list__link"
+    >
+        How to get there?
+    </a>
+
+        </li>
+    
+                    <li class="c-doormat-list__item ">
+                <a
+        href="/en/practical/camping"
+        class="c-doormat-list__link"
+    >
+        Camping
+    </a>
+
+        </li>
+    
+                    <li class="c-doormat-list__item ">
+                <a
+        href="/en/practical/frequently-asked-questions"
+        class="c-doormat-list__link"
+    >
+        Frequently asked questions
+    </a>
+
+        </li>
+    
+
+    </ul>
+
+                </div>
+                <div class="o-grid__item u-1-of-3-bp5">
+                    <h4 class="u-type-uppercase u-ms2 u-color-neutral-xxxx-light u-mb-gamma">
+                        Newsletter
+                    </h4>
+                    <p>
+                        Subscribe to our newsletter to stay tuned to the latest news.
+                    </p>
+                    <div class="js-ajax-success c-alert-box c-alert-box--success is-hidden"></div>
+                    <form name="" method="post" action="/subscribe" class="js-newsletter-form c-updates__form u-mb-jota" data-action="subscribe">
+                        <div class="o-grid">
+                            <div class="o-grid__item u-4-of-6-bp4 u-mb-0">
+                                <input type="email" id="email" name="email" required="required" class="c-input-text c-input-text--md c-input-text c-input-text--prefix c-updates__item c-updates__input" placeholder="Email" />
+                            </div>
+                            <div class="o-grid__item u-2-of-6-bp4">
+                                <span class="js-form-alert c-alert-box c-alert-box--error is-hidden email"></span>
+                                <button class="c-button c-button--block c-button--lg c-button--postfix c-updates__item c-updates__button" type="submit">
+                                    Subscribe
+                                </button>
+                            </div>
+                            <div class="js-spinner is-hidden">
+                                <img src="https://assets.rockwerchter.be/bundles/customapp/images/spinner.svg?v29.5">
+                            </div>
+                        </div>
+                        <input type="hidden" id="_locale" name="_locale" value="en" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                <div class="c-section">
+                    <ul class="o-grid o-list o-grid--gutter c-sponsors">             
+                        <li class="c-sponsors__item o-grid__item u-4-of-12 u-3-of-12-bp2 u-2-of-12-bp3 u-1-of-12-bp6">
+                            <a class="c-sponsors__link" href="https://www.kbc.be/retail/en.html" title="KBC" target="_blank">
+                                <span class="c-sponsors__img c-sponsors__img--sm p-blazy u-opacity-alpha js-blazy" style="background-image: url(https://assets.rockwerchter.be/files/kbc-5a05b1d963cac.png?v29.5);"></span>
+                            </a>
+                        </li>                                              
+                        <li class="c-sponsors__item o-grid__item u-4-of-12 u-3-of-12-bp2 u-2-of-12-bp3 u-1-of-12-bp6">
+                            <a class="c-sponsors__link" href="https://jupiler.be/" title="Jupiler" target="_blank">
+                                <span class="c-sponsors__img c-sponsors__img--sm p-blazy u-opacity-alpha js-blazy" style="background-image: url(https://assets.rockwerchter.be/files/jup-white-5a05b1d939fa5.png?v29.5);"></span>
+                            </a>
+                        </li>                                              
+                        <li class="c-sponsors__item o-grid__item u-4-of-12 u-3-of-12-bp2 u-2-of-12-bp3 u-1-of-12-bp6">
+                            <a class="c-sponsors__link" href="https://www.cocacola.be/" title="Coca Cola" target="_blank">
+                                <span class="c-sponsors__img c-sponsors__img--sm p-blazy u-opacity-alpha js-blazy" style="background-image: url(https://assets.rockwerchter.be/files/cocacola-5a05b1d94db4c.png?v29.5);"></span>
+                            </a>
+                        </li>                                              
+                        <li class="c-sponsors__item o-grid__item u-4-of-12 u-3-of-12-bp2 u-2-of-12-bp3 u-1-of-12-bp6">
+                            <a class="c-sponsors__link" href="https://www.proximus.be/en" title="Proximus" target="_blank">
+                                <span class="c-sponsors__img c-sponsors__img--sm p-blazy u-opacity-alpha js-blazy" style="background-image: url(https://assets.rockwerchter.be/files/proximus-5a05b1d9a1b56.png?v29.5);"></span>
+                            </a>
+                        </li>                                            
+                        <li class="c-sponsors__item o-grid__item u-4-of-12 u-3-of-12-bp2 u-2-of-12-bp3 u-1-of-12-bp6">
+                            <a class="c-sponsors__link" href="https://www.proximusgoformusic.be" title="PGFM" target="_blank">
+                                <span class="c-sponsors__img c-sponsors__img--sm p-blazy u-opacity-alpha js-blazy" style="background-image: url(https://assets.rockwerchter.be/files/pgfm-whitenew-5a05b1d98cad0.png?v29.5);"></span>
+                            </a>
+                        </li>                                          
+                        <li class="c-sponsors__item o-grid__item u-4-of-12 u-3-of-12-bp2 u-2-of-12-bp3 u-1-of-12-bp6">
+                            <a class="c-sponsors__link" href="https://www2.deloitte.com/be/en.html" title="Deloitte" target="_blank">
+                                <span class="c-sponsors__img c-sponsors__img--sm p-blazy u-opacity-alpha js-blazy" style="background-image: url(https://assets.rockwerchter.be/files/deloitte-wit-5a0c6d34d9a96.png?v29.5);"></span>
+                            </a>
+                        </li>                                              
+                        <li class="c-sponsors__item o-grid__item u-4-of-12 u-3-of-12-bp2 u-2-of-12-bp3 u-1-of-12-bp6">
+                            <a class="c-sponsors__link" href="https://www.redbull.com/int-en/" title="Red Bull" target="_blank">
+                                <span class="c-sponsors__img c-sponsors__img--sm p-blazy u-opacity-alpha js-blazy" style="background-image: url(https://assets.rockwerchter.be/files/redbull-5a05b1d9b4f84.png?v29.5);"></span>
+                            </a>
+                        </li>
+                        <li class="c-sponsors__item o-grid__item u-4-of-12 u-3-of-12-bp2 u-2-of-12-bp3 u-1-of-12-bp6">
+                            <a class="c-sponsors__link" href="https://www.accentjobs.be/nl" title="Accent jobs" target="_blank">
+                                <span class="c-sponsors__img c-sponsors__img--sm p-blazy u-opacity-alpha js-blazy" style="background-image: url(https://assets.rockwerchter.be/files/accent-wit-5a0c6d356616a.png?v29.5);"></span>
+                            </a>
+                        </li>                                                                          
+                        <li class="c-sponsors__item o-grid__item u-4-of-12 u-3-of-12-bp2 u-2-of-12-bp3 u-1-of-12-bp6">
+                            <a class="c-sponsors__link" href="https://www.spa.be/nl" title="Spa" target="_blank">
+                                <span class="c-sponsors__img c-sponsors__img--sm p-blazy u-opacity-alpha js-blazy" style="background-image: url(https://assets.rockwerchter.be/files/spa-5a1fe0df99dd8.png?v29.5);"></span>
+                            </a>
+                        </li>                                                        
+                        <li class="c-sponsors__item o-grid__item u-4-of-12 u-3-of-12-bp2 u-2-of-12-bp3 u-1-of-12-bp6">
+                            <a class="c-sponsors__link" href="http://www.bacardi.com/be-nl" title="Bacardi" target="_blank">
+                                <span class="c-sponsors__img c-sponsors__img--sm p-blazy u-opacity-alpha js-blazy" style="background-image: url(https://assets.rockwerchter.be/files/bacardi-white-5c7cfdfe5a858.png?v29.5);"></span>
+                            </a>
+                        </li>                                                    
+                        <li class="c-sponsors__item o-grid__item u-4-of-12 u-3-of-12-bp2 u-2-of-12-bp3 u-1-of-12-bp6">
+                            <a class="c-sponsors__link" href="http://www.winforlife.be/language" title="Win For Life" target="_blank">
+                                <span class="c-sponsors__img c-sponsors__img--sm p-blazy u-opacity-alpha js-blazy" style="background-image: url(https://assets.rockwerchter.be/files/winforlife-5a745f0064d2f.png?v29.5);"></span>
+                            </a>
+                        </li>                                                     
+                        <li class="c-sponsors__item o-grid__item u-4-of-12 u-3-of-12-bp2 u-2-of-12-bp3 u-1-of-12-bp6">
+                            <a class="c-sponsors__link" href="https://stubru.be" title="Studio Brussel" target="_blank">
+                                <span class="c-sponsors__img c-sponsors__img--sm p-blazy u-opacity-alpha js-blazy" style="background-image: url(https://assets.rockwerchter.be/files/stubru-wit-5c5c4dc102fd1.png?v29.5);"></span>
+                            </a>
+                        </li>                                                 
+                        <li class="c-sponsors__item o-grid__item u-4-of-12 u-3-of-12-bp2 u-2-of-12-bp3 u-1-of-12-bp6">
+                            <a class="c-sponsors__link" href="https://www.demorgen.be" title="De Morgen" target="_blank">
+                                <span class="c-sponsors__img c-sponsors__img--sm p-blazy u-opacity-alpha js-blazy" style="background-image: url(https://assets.rockwerchter.be/files/demorgenwit-5a099f850ed40.png?v29.5);"></span>
+                            </a>
+                        </li>                                                 
+                        <li class="c-sponsors__item o-grid__item u-4-of-12 u-3-of-12-bp2 u-2-of-12-bp3 u-1-of-12-bp6">
+                            <a class="c-sponsors__link" href="http://www.humo.be" title="Humo" target="_blank">
+                                <span class="c-sponsors__img c-sponsors__img--sm p-blazy u-opacity-alpha js-blazy" style="background-image: url(https://assets.rockwerchter.be/files/humo-wit-5a099f84e80c9.png?v29.5);"></span>
+                            </a>
+                        </li>                                                  
+                        <li class="c-sponsors__item o-grid__item u-4-of-12 u-3-of-12-bp2 u-2-of-12-bp3 u-1-of-12-bp6">
+                            <a class="c-sponsors__link" href="https://www.canvas.be/" title="Canvas" target="_blank">
+                                <span class="c-sponsors__img c-sponsors__img--sm p-blazy u-opacity-alpha js-blazy" style="background-image: url(https://assets.rockwerchter.be/files/canvas-wit-5c935dfc8a08a.png?v29.5);"></span>
+                            </a>
+                        </li>                                                   
+                        <li class="c-sponsors__item o-grid__item u-4-of-12 u-3-of-12-bp2 u-2-of-12-bp3 u-1-of-12-bp6">
+                            <a class="c-sponsors__link" href="https://www.proximus.be/pickx/nl" title="Pickx" target="_blank">
+                                <span class="c-sponsors__img c-sponsors__img--sm p-blazy u-opacity-alpha js-blazy" style="background-image: url(https://assets.rockwerchter.be/files/pickx-white-5d024384abe8f.png?v29.5);"></span>
+                            </a>
+                        </li>                                                  
+                        <li class="c-sponsors__item o-grid__item u-4-of-12 u-3-of-12-bp2 u-2-of-12-bp3 u-1-of-12-bp6">
+                            <a class="c-sponsors__link" href="https://www.rtbf.be/tv/ladeux/" title="La Deux" target="_blank">
+                                <span class="c-sponsors__img c-sponsors__img--sm p-blazy u-opacity-alpha js-blazy" style="background-image: url(https://assets.rockwerchter.be/files/ladeux-wit-5a0c6d35ce3f7.png?v29.5);"></span>
+                            </a>
+                        </li>                                                  
+                        <li class="c-sponsors__item o-grid__item u-4-of-12 u-3-of-12-bp2 u-2-of-12-bp3 u-1-of-12-bp6">
+                            <a class="c-sponsors__link" href="http://www.lesoir.be/" title="Le Soir" target="_blank">
+                                <span class="c-sponsors__img c-sponsors__img--sm p-blazy u-opacity-alpha js-blazy" style="background-image: url(https://assets.rockwerchter.be/files/lesoir-2-5a05b1d978ced.png?v29.5);"></span>
+                            </a>
+                        </li>                                                   
+                        <li class="c-sponsors__item o-grid__item u-4-of-12 u-3-of-12-bp2 u-2-of-12-bp3 u-1-of-12-bp6">
+                            <a class="c-sponsors__link" href="https://www.rtbf.be/pure/" title="Pure FM" target="_blank">
+                                <span class="c-sponsors__img c-sponsors__img--sm p-blazy u-opacity-alpha js-blazy" style="background-image: url(https://assets.rockwerchter.be/files/purefm-wit-5a099f8454126.png?v29.5);"></span>
+                            </a>
+                        </li>                                                   
+                        <li class="c-sponsors__item o-grid__item u-4-of-12 u-3-of-12-bp2 u-2-of-12-bp3 u-1-of-12-bp6">
+                            <a class="c-sponsors__link" href="http://www.sudinfo.be/" title="Sudpresse" target="_blank">
+                                <span class="c-sponsors__img c-sponsors__img--sm p-blazy u-opacity-alpha js-blazy" style="background-image: url(https://assets.rockwerchter.be/files/sudpresse-wit-5a05b1d9cb2ec.png?v29.5);"></span>
+                            </a>
+                        </li>
+                                                                            
+                        <li class="c-sponsors__item o-grid__item u-4-of-12 u-3-of-12-bp2 u-2-of-12-bp3 u-1-of-12-bp6">
+                            <a class="c-sponsors__link" href="https://lenzendragen.be/promo/my-first-lenses" title="Dailies" target="_blank">
+                                <span class="c-sponsors__img c-sponsors__img--sm p-blazy u-opacity-alpha js-blazy" style="background-image: url(https://assets.rockwerchter.be/files/dailies-5ca4aeb9f1a48.png?v29.5);"></span>
+                            </a>
+                        </li>                                                  
+                        <li class="c-sponsors__item o-grid__item u-4-of-12 u-3-of-12-bp2 u-2-of-12-bp3 u-1-of-12-bp6">
+                            <a class="c-sponsors__link" href="https://www.payconiq.be/en" title="Payconiq" target="_blank">
+                                <span class="c-sponsors__img c-sponsors__img--sm p-blazy u-opacity-alpha js-blazy" style="background-image: url(https://assets.rockwerchter.be/files/payconiq-white-5d10f81463057.png?v29.5);"></span>
+                            </a>
+                        </li>
+                    </ul>
+</div>
+
+    </div>
+            </div>
+</div>
+
+<script src="https://assets.rockwerchter.be/bundles/bazingajstranslation/js/translator.min.js?v29.5"></script>
+<script src="https://www.rockwerchter.be/translations/base"></script>
+
+<script src="https://assets.rockwerchter.be/plugins/svgxuse/svgxuse.js?v29.5"></script>
+<script src="https://assets.rockwerchter.be/layout/frontend/js/modernizr.js?v29.5"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="https://assets.rockwerchter.be/layout/frontend/js/_jquery/jquery.min.js?v29.5"><\/script>')</script>
+
+<script src="https://assets.rockwerchter.be/bundles/fosjsrouting/js/router.js?v29.5"></script>
+<script src="/en/js/routing?callback=fos.Router.setData"></script>
+
+<script src="https://assets.rockwerchter.be/layout/frontend/js/vendor.concat.js?v29.5"></script>
+
+<script>
+    var recaptcha_v3_public_key = '6LdYipQUAAAAAG0LMajLOPmLJc24gu3_rsirGI0D';
+    var recaptcha_action = '/en/';
+</script>
+<script src="https://www.google.com/recaptcha/api.js?render=6LdYipQUAAAAAG0LMajLOPmLJc24gu3_rsirGI0D"></script>
+<script src="https://assets.rockwerchter.be/layout/frontend/js/theme.concat.js?v29.5"></script>
+<script src="https://assets.rockwerchter.be/bundles/customapp/js/newsletter.js?v29.5"></script>
+<script src="https://assets.rockwerchter.be/bundles/customapp/js/recaptcha.js?v29.5"></script>
+
+<script>
+    var Harmony = {
+        _system: {
+            locale: 'en',
+            debug: false
+        },
+        frontend: {},
+        backend: {}
+    };
+</script>
+
+<script type="text/javascript">window.NREUM||(NREUM={});NREUM.info={"beacon":"bam.nr-data.net","licenseKey":"824e30ded5","applicationID":"33639569","transactionName":"NgMGZEEEXUBWVxIPXg9JJVNHDFxdGHcTFUUOCzdAXAtAXEV2EwhVDQNedkEKXUdSWgJJZggCA1VHX1dcWEYLB0U=","queueTime":0,"applicationTime":84,"atts":"GkQFEgkeTk4=","errorBeacon":"bam.nr-data.net","agent":""}</script></body>
+</html>
